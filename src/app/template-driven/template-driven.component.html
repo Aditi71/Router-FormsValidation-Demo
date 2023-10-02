@@ -1,0 +1,45 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="formData.name" required
+      [ngClass]="{ 'ng-invalid': myForm.submitted && myForm.controls['name'].invalid }">
+  
+    <div *ngIf="myForm.submitted && myForm.controls['name'].invalid" class="error-message">
+      Name is required.
+    </div>
+  
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" [(ngModel)]="formData.age" required min="18" max="99"
+      [ngClass]="{ 'ng-invalid': myForm.submitted && myForm.controls['age'].invalid }">
+  
+    <div *ngIf="myForm.submitted && myForm.controls['age'].invalid" class="error-message">
+      Age must be between 18 and 99.
+    </div>
+  
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="formData.email" required
+      [ngClass]="{ 'ng-invalid': myForm.submitted && myForm.controls['email'].invalid }">
+  
+    <div *ngIf="myForm.submitted && myForm.controls['email'].invalid" class="error-message">
+      Please enter a valid email address.
+    </div>
+  
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" [(ngModel)]="formData.phone" required
+      [ngClass]="{ 'ng-invalid': myForm.submitted && myForm.controls['phone'].invalid }">
+  
+    <div *ngIf="myForm.submitted && myForm.controls['phone'].invalid" class="error-message">
+      Please enter a valid phone number.
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+  <!-- Display the form data after submission -->
+<div *ngIf="this.submitted" class="submitted-data">
+    <h3>Submitted Data</h3>
+    <p><strong>Name:</strong> {{ formData.name }}</p>
+    <p><strong>Age:</strong> {{ formData.age }}</p>
+    <p><strong>Email:</strong> {{ formData.email }}</p>
+    <p><strong>Phone:</strong> {{ formData.phone }}</p>
+</div>
+
+  

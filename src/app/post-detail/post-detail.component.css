@@ -1,0 +1,27 @@
+
+.post-detail {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .post-detail h2 {
+    font-size: 40px;
+    color: #333;
+  }
+  
+  .post-detail p {
+    font-size: 28px;
+    color: #777;
+    margin-top: 10px;
+  }
+
+
+  .button{
+    background-color: green;
+    color: white;
+    display: block;
+    margin-top: 20px;
+    padding: 20px;
+  }
+  
+  

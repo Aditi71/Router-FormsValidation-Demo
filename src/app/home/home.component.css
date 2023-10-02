@@ -1,0 +1,29 @@
+.home-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .home-container h1 {
+    margin-top: 5%;
+    font-size: 54px;
+    color: #333;
+  }
+  
+  .button {
+    margin-top: 20px;
+  }
+  
+  .button a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 24px;
+  }
+  
+  .button a:hover {
+    background-color: #0056b3
+  }  

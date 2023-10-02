@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-card-title>Angular Material Form example of Form Validators</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="First Name" class="input" name="firstName" [(ngModel)]="user.firstName" [formControl]="firstNameFormControl">
+        <mat-error *ngIf="firstNameFormControl.hasError('required')">First Name is required.</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Last Name" class="input" name="lastName" [(ngModel)]="user.lastName" [formControl]="lastNameFormControl">
+        <mat-error *ngIf="lastNameFormControl.hasError('required')">Last Name is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input matInput type="number" class="input" placeholder="Age" name="age" [(ngModel)]="user.age" [formControl]="ageFormControl">
+        <mat-error *ngIf="ageFormControl.hasError('required')">Age is required.</mat-error>
+        <mat-error *ngIf="ageFormControl.hasError('invalidAge')">Age must be a number between 18 and 99.</mat-error>
+      </mat-form-field>      
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" class="input" placeholder="Email" name="email" [(ngModel)]="user.email" [formControl]="emailFormControl">
+        <mat-error *ngIf="emailFormControl.hasError('required')">Email is required.</mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('email')">Invalid email address.</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput type="tel" class="input" placeholder="Phone" name="phone" [(ngModel)]="user.phone" [formControl]="phoneFormControl">
+        <mat-error *ngIf="phoneFormControl.hasError('required')">Phone number is required.</mat-error>
+        <mat-error *ngIf="phoneFormControl.hasError('invalidPhone')">Invalid phone number format (must be 10 digits).</mat-error>
+      </mat-form-field>                 
+
+      <div class="submit-button">
+        <button mat-raised-button color="primary" class="button" type="submit">Submit</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<div *ngIf="submitted">
+  <mat-card>
+    <mat-card-title>Your Information</mat-card-title>
+    <mat-card-content>
+      <p><strong>First Name:</strong> {{ user.firstName }}</p>
+      <p><strong>Last Name:</strong> {{ user.lastName }}</p>
+      <p><strong>Age:</strong> {{ user.age }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Phone:</strong> {{ user.phone }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
